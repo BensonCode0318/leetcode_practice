@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Definition for a singly-linked list.
  * class ListNode {
@@ -26,11 +25,7 @@ class Solution
         
         while ($head != null && $head->next != null) {
             if ($head->val == $head->next->val) {
-                $head = $head->next;
-                while ($head) {
-                    if ($head->val != $head->next->val) {
-                        break;
-                    }
+                while ($head != null && $head->val == $head->next->val) {
                     $head = $head->next;
                 }
                 $current->next = $head->next;
@@ -39,6 +34,7 @@ class Solution
             }
             $head = $head->next;
         }
+        
         return $newNode->next;
     }
 }
